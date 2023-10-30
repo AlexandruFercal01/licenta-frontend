@@ -1,5 +1,5 @@
 import React from 'react'
 
-export function PlantInspector() {
-    return <></>
+export function MyPlants() {
+    return <>To Do : My Plants</>
 }

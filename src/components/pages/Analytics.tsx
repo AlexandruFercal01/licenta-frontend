@@ -1,5 +1,5 @@
 import React from 'react'
 
 export function Analytics() {
-    return <></>
+    return <>To Do : Analytics</>
 }

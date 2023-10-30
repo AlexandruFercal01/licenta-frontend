@@ -1,5 +1,5 @@
 import React from 'react'
 
 export function PlantInspector() {
-    return <></>
+    return <>To Do : Plant Inspector</>
 }
