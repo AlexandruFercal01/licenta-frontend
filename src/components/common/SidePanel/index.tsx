@@ -26,6 +26,13 @@ export function SidePanel() {
                         variant="outlined"
                         startIcon={<SpeedRoundedIcon sx={{ color: 'black' }} />}
                     >
+                        Main Page
+                    </Button>
+                    <Button
+                        className="Button"
+                        variant="outlined"
+                        startIcon={<SpeedRoundedIcon sx={{ color: 'black' }} />}
+                    >
                         Dashboard
                     </Button>
                     <Button

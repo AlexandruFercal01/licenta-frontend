@@ -10,4 +10,87 @@
     backdrop-filter: blur(10.4px);
     -webkit-backdrop-filter: blur(10.4px);
     border: 1px solid rgba(157, 157, 157, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.welcome {
+    padding: 15px;
+    color: white;
+    width: 50%;
+    height: 20%;
+    background: rgba(85, 88, 67, 0.67);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.3px);
+    -webkit-backdrop-filter: blur(6.3px);
+}
+
+.sensorsTable {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 100%;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.greenhouseField {
+    width: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+
+    background: rgba(47, 210, 112, 0.52);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+    border: 1px solid rgba(193, 198, 195, 0.36);
+}
+
+.greenhouseIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.greenhouseValue {
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.sensorCard {
+    display: flex;
+    height: 180px;
+    width: 300px;
+    border-radius: 30px !important;
+    margin: 10px;
+    /* From https://css.glass */
+    background: rgba(5, 70, 14, 0.31) !important;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 100px;
 }
