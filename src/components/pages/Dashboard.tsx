@@ -1,7 +1,7 @@
 import React from 'react'
 import './dashboard.styles.css'
 
-import { Button, Card, Switch } from '@mui/material'
+import { Button, Card, CircularProgress, Switch } from '@mui/material'
 import { SensorCard } from '../common/SensorCard'
 import DeviceThermostatRoundedIcon from '@mui/icons-material/DeviceThermostatRounded'
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded'

@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-import { Card } from '@mui/material'
+import { Box, Card, CircularProgress, Typography } from '@mui/material'
 
 type Props = {
     name: string
@@ -15,10 +15,29 @@ export function SensorCard({ name, value, unit_value, icon }: Props) {
         <Card className="sensorCard">
             <div className="leftSide">
                 <h2>{name}</h2>
-                <h1>
-                    {value}
-                    {unit_value}
-                </h1>
+
+                <Box display="flex" justifyContent="center" alignItems="center">
+                    <CircularProgress
+                        variant="determinate"
+                        value={value}
+                        style={{
+                            width: '120px',
+                            height: '120px',
+                            borderRadius: '100%',
+                            boxShadow: 'inset 0 0 0px 11px gray',
+                            backgroundColor: 'transparent',
+                            color: '#555843 ',
+                        }}
+                    />
+                    <Typography
+                        position="absolute"
+                        fontSize={'32px'}
+                        fontWeight={'bold'}
+                    >
+                        {value}
+                        {unit_value}
+                    </Typography>
+                </Box>
             </div>
             {icon}
         </Card>

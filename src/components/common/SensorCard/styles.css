@@ -1,7 +1,7 @@
 .sensorCard {
     display: flex;
-    height: 200px;
-    width: 300px;
+    height: 220px;
+    width: 310px;
     border-radius: 30px !important;
     margin: 10px;
     /* From https://css.glass */
