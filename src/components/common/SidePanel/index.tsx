@@ -13,8 +13,11 @@ import github from '../../assets/github.png'
 import linkedin from '../../assets/linkedin.png'
 
 import './styles.css'
+import { useNavigate } from 'react-router-dom'
 
 export function SidePanel() {
+    const navigate = useNavigate()
+
     return (
         <div className="sidePanel">
             <div className="buttonsContainer">
@@ -25,6 +28,9 @@ export function SidePanel() {
                         className="Button"
                         variant="outlined"
                         startIcon={<SpeedRoundedIcon sx={{ color: 'black' }} />}
+                        onClick={() => {
+                            navigate('/main')
+                        }}
                     >
                         Main Page
                     </Button>
@@ -32,6 +38,9 @@ export function SidePanel() {
                         className="Button"
                         variant="outlined"
                         startIcon={<SpeedRoundedIcon sx={{ color: 'black' }} />}
+                        onClick={() => {
+                            navigate('/dashboard')
+                        }}
                     >
                         Dashboard
                     </Button>
@@ -39,6 +48,9 @@ export function SidePanel() {
                         className="Button"
                         variant="outlined"
                         startIcon={<GrassRoundedIcon sx={{ color: 'black' }} />}
+                        onClick={() => {
+                            navigate('/plants')
+                        }}
                     >
                         My plants
                     </Button>
@@ -48,6 +60,9 @@ export function SidePanel() {
                         startIcon={
                             <SearchRoundedIcon sx={{ color: 'black' }} />
                         }
+                        onClick={() => {
+                            navigate('/inspector')
+                        }}
                     >
                         Plant inspector
                     </Button>
@@ -57,6 +72,9 @@ export function SidePanel() {
                         startIcon={
                             <BarChartRoundedIcon sx={{ color: 'black' }} />
                         }
+                        onClick={() => {
+                            navigate('/analytics')
+                        }}
                     >
                         Analytics
                     </Button>
