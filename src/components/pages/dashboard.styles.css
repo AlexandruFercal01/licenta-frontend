@@ -69,28 +69,7 @@
     margin-left: 20px;
 }
 
-.sensorCard {
+.controlCardContainer {
     display: flex;
-    height: 180px;
-    width: 300px;
-    border-radius: 30px !important;
-    margin: 10px;
-    /* From https://css.glass */
-    background: rgba(5, 70, 14, 0.31) !important;
-}
-
-.leftSide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 20px;
-}
-
-.icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    font-size: 100px;
+    margin: 15px;
 }

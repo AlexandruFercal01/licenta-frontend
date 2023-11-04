@@ -1,0 +1,25 @@
+.sensorCard {
+    display: flex;
+    height: 200px;
+    width: 300px;
+    border-radius: 30px !important;
+    margin: 10px;
+    /* From https://css.glass */
+    background: #ffffff !important;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 100px;
+}
