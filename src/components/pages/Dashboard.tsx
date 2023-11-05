@@ -36,7 +36,7 @@ export function Dashboard() {
                     <SensorCard
                         name="Temperature"
                         value={25}
-                        unit_value="*C"
+                        unit_value="°C"
                         icon={IconType['temperature']}
                     />
                     <SensorCard
