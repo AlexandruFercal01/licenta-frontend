@@ -51,14 +51,24 @@ export function PlantInspector() {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>Common Name</TableCell>
-                                <TableCell>Image</TableCell>
-                                <TableCell align="right">
-                                    Scientific Name
+                                <TableCell>
+                                    <h3>Common Name</h3>
                                 </TableCell>
-                                <TableCell align="right">Cycle</TableCell>
-                                <TableCell align="right"> Watering </TableCell>
-                                <TableCell align="right">Sunlight</TableCell>
+                                <TableCell>
+                                    <h3>Image</h3>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <h3>Scientific Name</h3>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <h3>Cycle</h3>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <h3>Watering</h3>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <h3>Sunlight</h3>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -69,28 +79,29 @@ export function PlantInspector() {
                                     // eslint-disable-next-line react/jsx-key
                                     <TableRow>
                                         <TableCell>
-                                            {plant.common_name}
+                                            <h5>{plant.common_name}</h5>
                                         </TableCell>
                                         <TableCell>
                                             <img
                                                 src={
                                                     plant.default_image
-                                                        .small_url
+                                                        ?.small_url
                                                 }
                                                 width="200px"
+                                                height="200px"
                                             />
                                         </TableCell>
                                         <TableCell align="right">
-                                            {plant.scientific_name}
+                                            <h5>{plant.scientific_name}</h5>
                                         </TableCell>
                                         <TableCell align="right">
-                                            {plant.cycle}
+                                            <h5>{plant.cycle}</h5>
                                         </TableCell>
                                         <TableCell align="right">
-                                            {plant.watering}
+                                            <h5>{plant.watering}</h5>
                                         </TableCell>
                                         <TableCell align="right">
-                                            {plant.sunlight}
+                                            <h5>{plant.sunlight}</h5>
                                         </TableCell>
                                     </TableRow>
                                 ))

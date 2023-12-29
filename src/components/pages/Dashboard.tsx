@@ -52,12 +52,6 @@ export function Dashboard() {
                         icon={IconType['soil_humidity']}
                     />
                     <SensorCard
-                        name="Co2"
-                        value={22}
-                        unit_value="%"
-                        icon={IconType['co2']}
-                    />
-                    <SensorCard
                         name="Air Humidity"
                         value={40}
                         unit_value="%"

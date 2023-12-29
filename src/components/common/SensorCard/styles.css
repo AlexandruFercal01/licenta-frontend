@@ -1,11 +1,20 @@
+.cardContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .sensorCard {
     display: flex;
-    height: 220px;
-    width: 310px;
+    height: 250px;
+    width: 380px;
     border-radius: 30px !important;
     margin: 10px;
-    /* From https://css.glass */
     background: #ffffff !important;
+    box-shadow:
+        rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
 }
 
 .leftSide {

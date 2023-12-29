@@ -21,7 +21,7 @@
 }
 
 .Button {
-    color: #555843 !important;
+    color: #79ac78 !important;
     width: 90%;
     height: 12%;
     border: 1px solid #ffffff !important;
@@ -33,8 +33,8 @@
 
 .Button:hover {
     color: #ffffff !important;
-    background-color: #555843 !important;
-    border: 1px solid #555843 !important;
+    background-color: #79ac78 !important;
+    border: 1px solid #79ac78 !important;
 }
 
 .line {
