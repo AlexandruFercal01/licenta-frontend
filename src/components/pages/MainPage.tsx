@@ -5,7 +5,6 @@ import axios from 'axios'
 import { Card, Grid, IconButton } from '@mui/material'
 import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded'
 import garden from '../assets/garden.jpg'
-import { height } from '@mui/system'
 import { useNavigate } from 'react-router'
 
 const BackgroundHead = {

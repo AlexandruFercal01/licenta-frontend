@@ -1,16 +1,21 @@
 import React from 'react'
 import './dashboard.styles.css'
 
-import { Button, Card, CircularProgress, Switch } from '@mui/material'
 import { SensorCard } from '../common/SensorCard'
 import DeviceThermostatRoundedIcon from '@mui/icons-material/DeviceThermostatRounded'
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded'
 import WaterDropRoundedIcon from '@mui/icons-material/WaterDropRounded'
-import Co2RoundedIcon from '@mui/icons-material/Co2Rounded'
 import WaterDamageRoundedIcon from '@mui/icons-material/WaterDamageRounded'
 import { ControlCard } from '../common/ControlCard/indes'
 
-const IconType: any = {
+type Icon = {
+    temperature: JSX.Element
+    soil_humidity: JSX.Element
+    light: JSX.Element
+    air_humidity: JSX.Element
+}
+
+const IconType: Icon = {
     temperature: (
         <DeviceThermostatRoundedIcon
             sx={{ fontSize: '100px' }}
@@ -21,7 +26,6 @@ const IconType: any = {
         <WaterDropRoundedIcon sx={{ fontSize: '100px' }} className="icon" />
     ),
     light: <LightModeRoundedIcon sx={{ fontSize: '100px' }} className="icon" />,
-    co2: <Co2RoundedIcon sx={{ fontSize: '100px' }} className="icon" />,
     air_humidity: (
         <WaterDamageRoundedIcon sx={{ fontSize: '100px' }} className="icon" />
     ),

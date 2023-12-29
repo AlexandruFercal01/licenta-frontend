@@ -12,7 +12,7 @@ export function ControlCard({ name, on }: Props) {
 
     useEffect(() => {
         if (on) {
-            setCheckedColor('#555843')
+            setCheckedColor('#79ac78')
         } else {
             setCheckedColor('#FFFFFF')
         }
@@ -32,7 +32,7 @@ export function ControlCard({ name, on }: Props) {
                 defaultChecked={on}
                 sx={{
                     '&.MuiSwitch-root .Mui-checked': {
-                        color: '#555843',
+                        color: '#79ac78',
                     },
                 }}
             />

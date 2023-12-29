@@ -1,8 +1,8 @@
 import React from 'react'
 import './styles.css'
 
-import { Box, Card, CircularProgress, Typography } from '@mui/material'
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
+import { Card } from '@mui/material'
+import { CircularProgressbar } from 'react-circular-progressbar'
 
 type Props = {
     name: string
@@ -15,28 +15,6 @@ export function SensorCard({ name, value, unit_value, icon }: Props) {
     return (
         <Card className="sensorCard">
             <div className="leftSide">
-                {/* <Box display="flex" justifyContent="center" alignItems="center">
-                    <CircularProgress
-                        variant="determinate"
-                        value={value}
-                        style={{
-                            width: '120px',
-                            height: '120px',
-                            borderRadius: '100%',
-                            boxShadow: 'inset 0 0 0px 11px gray',
-                            backgroundColor: 'transparent',
-                            color: '#555843 ',
-                        }}
-                    />
-                    <Typography
-                        position="absolute"
-                        fontSize={'32px'}
-                        fontWeight={'bold'}
-                    >
-                        {value}
-                        {unit_value}
-                    </Typography>
-                </Box> */}
                 <div
                     style={{
                         height: '200px',
@@ -67,24 +45,7 @@ export function SensorCard({ name, value, unit_value, icon }: Props) {
                             },
                         }}
                     />
-                    <div
-                        style={{
-                            backgroundColor: '#79ac78',
-                            height: '75px',
-                            width: '75px',
-                            position: 'absolute',
-                            top: 60,
-                            borderRadius: '100%',
-                            // paddingTop: '5px',
-                            // paddingBottom: '5px',
-                            padding: '5px',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            boxShadow:
-                                'inset -33px -33px 65px #3d563c,inset 33px 33px 65px #b6ffb4',
-                        }}
-                    >
+                    <div className="unitValueContainer">
                         <h2>{value + unit_value}</h2>
                     </div>
                 </div>
