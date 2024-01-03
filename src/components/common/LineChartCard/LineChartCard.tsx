@@ -7,11 +7,11 @@ type Props = {
 }
 
 const style = {
-    maxWidth: '500px',
-    height: '500px',
+    width: '80%',
+    height: '340px',
     padding: '20px',
     margin: '10px',
-    broderRadius: '20px ',
+    borderRadius: '20px ',
 }
 
 export function LineChartCard({ title }: Props) {
@@ -20,7 +20,7 @@ export function LineChartCard({ title }: Props) {
             <h3>{title}</h3>
             <Box sx={{ flexGrow: 1 }}>
                 <SparkLineChart
-                    data={[24, 23, 22.1, 0, 22.5, 24.5, 27]}
+                    data={[24, 23, 22.1, 22.5, 24.5, 27]}
                     height={150}
                     showHighlight
                     showTooltip

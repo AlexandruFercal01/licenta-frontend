@@ -29,7 +29,7 @@ export function SidePanel() {
                         variant="outlined"
                         startIcon={<SpeedRoundedIcon sx={{ color: 'black' }} />}
                         onClick={() => {
-                            navigate('/main')
+                            navigate('/')
                         }}
                     >
                         Main Page

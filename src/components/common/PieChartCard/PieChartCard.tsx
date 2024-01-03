@@ -7,10 +7,15 @@ type Props = {
 }
 
 const style = {
-    width: '300px',
-    height: '700px',
+    width: '80%',
+    height: '320px',
     padding: '20px',
     margin: '10px',
+    borderRadius: '20px ',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
 }
 
 const chartStyle = {

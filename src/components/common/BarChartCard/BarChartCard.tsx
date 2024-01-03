@@ -6,7 +6,17 @@ type Props = {
     title?: string
 }
 
-const style = { width: '100%', padding: '20px', margin: '10px' }
+const style = {
+    width: '90%',
+    height: '360px',
+    borderRadius: '20px ',
+    margin: ' 10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+}
+
+const chartStyle = { shapeRendering: { borderRadius: '20px' } }
 
 export function BarChartCard({ title }: Props) {
     return (
@@ -24,8 +34,8 @@ export function BarChartCard({ title }: Props) {
                     { data: [1, 6, 3] },
                     { data: [2, 5, 6] },
                 ]}
-                sx={{ shapeRendering: { borderRadius: '10px' } }}
-                width={400}
+                sx={chartStyle}
+                width={500}
                 height={300}
             />
         </Card>

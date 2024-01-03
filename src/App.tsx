@@ -20,12 +20,12 @@ function App() {
                 <SidePanel />
 
                 <Routes>
-                    <Route path="/main" element={<Main />} />
+                    <Route path="/" element={<Main />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/plants" element={<MyPlants />} />
                     <Route path="/inspector" element={<PlantInspector />} />
                     <Route path="/analytics" element={<Analytics />} />
-                    <Route path="*" element={<div>404</div>} />
+                    <Route path="/*" element={<div>404</div>} />
                 </Routes>
             </div>
         </div>
