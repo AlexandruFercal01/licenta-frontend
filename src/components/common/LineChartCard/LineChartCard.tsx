@@ -7,10 +7,8 @@ type Props = {
 }
 
 const style = {
-    width: '80%',
-    height: '340px',
-    padding: '20px',
-    margin: '10px',
+    height: '360px',
+    padding: '10px',
     borderRadius: '20px ',
 }
 

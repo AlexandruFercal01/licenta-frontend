@@ -39,32 +39,38 @@ export function Analytics() {
                 <BarChartCard title="Alex are mere " />
                 <PieChartCard title="Alex are mere " />
             </div> */}
-            <Grid container spacing={1} margin={'5px'}>
-                <Grid xs={5}>
+            <Grid
+                container
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <Grid xs={12} lg={5}>
                     <LineChartCard title="Sensors values by type" />
                 </Grid>
-                <Grid xs={7}>
-                    <Grid container width={'95%'}>
-                        <Grid xs={6}>
+                <Grid xs={12} lg={7}>
+                    <Grid container width={'100%'}>
+                        <Grid xs={12} lg={6}>
                             <Card className="card">
                                 <h1>Temperature</h1>
                                 <h1>25*C</h1>
                             </Card>
                         </Grid>
-
-                        <Grid xs={6}>
+                        <Grid xs={12} lg={6}>
                             <Card className="card">
                                 <h1>Temperature</h1>
                                 <h1>25*C</h1>
                             </Card>
                         </Grid>
-                        <Grid xs={6}>
+                        <Grid xs={12} lg={6}>
                             <Card className="card">
                                 <h1>Temperature</h1>
                                 <h1>25*C</h1>
                             </Card>
                         </Grid>
-                        <Grid xs={6}>
+                        <Grid xs={12} lg={6}>
                             <Card className="card">
                                 <h1>Soil Humidity</h1>
                                 <h1>58%</h1>
@@ -72,10 +78,10 @@ export function Analytics() {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid xs={5}>
+                <Grid xs={12} lg={4}>
                     <PieChartCard title="Sensors values by type" />
                 </Grid>
-                <Grid xs={7}>
+                <Grid xs={12} lg={8}>
                     <BarChartCard title="Sensors values by type" />
                 </Grid>
             </Grid>

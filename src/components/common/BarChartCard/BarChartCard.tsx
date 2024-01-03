@@ -7,10 +7,9 @@ type Props = {
 }
 
 const style = {
-    width: '90%',
-    height: '360px',
+    height: '350px',
     borderRadius: '20px ',
-    margin: ' 10px',
+    margin: '10px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -26,16 +25,16 @@ export function BarChartCard({ title }: Props) {
                 xAxis={[
                     {
                         scaleType: 'band',
-                        data: ['group A', 'group B', 'group C'],
+                        data: ['group A', 'group B', 'group C', 'group D'],
                     },
                 ]}
                 series={[
-                    { data: [4, 3, 5] },
-                    { data: [1, 6, 3] },
-                    { data: [2, 5, 6] },
+                    { data: [4, 3, 5, 6] },
+                    { data: [1, 6, 3, 7] },
+                    { data: [2, 5, 6, 8] },
+                    { data: [1, 2, 3, 4] },
                 ]}
                 sx={chartStyle}
-                width={500}
                 height={300}
             />
         </Card>
