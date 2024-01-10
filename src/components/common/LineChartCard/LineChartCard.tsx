@@ -19,7 +19,7 @@ export function LineChartCard({ title }: Props) {
             <Box sx={{ flexGrow: 1 }}>
                 <SparkLineChart
                     data={[24, 23, 22.1, 22.5, 24.5, 27]}
-                    height={150}
+                    height={300}
                     showHighlight
                     showTooltip
                 />

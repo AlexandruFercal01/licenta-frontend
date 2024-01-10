@@ -22,9 +22,9 @@ const chartStyle = {
     paddingAngle: 1,
     cornerRadius: 5,
     startAngle: -90,
-    endAngle: 180,
+    endAngle: 360,
     cx: 150,
-    cy: 150,
+    // cy: 125,
 }
 
 export function PieChartCard({ title }: Props) {
@@ -38,6 +38,7 @@ export function PieChartCard({ title }: Props) {
                             { id: 0, value: 10 },
                             { id: 1, value: 15 },
                             { id: 2, value: 20 },
+                            { id: 3, value: 100 },
                         ],
                         ...chartStyle,
                     },

@@ -9,36 +9,6 @@ import { Card, Grid } from '@mui/material'
 export function Analytics() {
     return (
         <div className="container">
-            {/* <div className="firstRow">
-                <div
-                    style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                    }}
-                >
-                    <div className="sensors">
-                        <Card className="card">
-                            <h1>Temperature</h1>
-                            <h1>25*C</h1>
-                        </Card>
-                        <Card className="card">
-                            <h1>Soil Humidity</h1>
-                            <h1>Humid</h1>
-                        </Card>
-                        <Card className="card">
-                            <h1>Air Humidity</h1>
-                            <h1>57%</h1>
-                        </Card>
-                        <Card className="card">
-                            <h1>Light</h1>
-                            <h1>70%</h1>
-                        </Card>
-                    </div>
-                    <LineChartCard title="Temperature over the week" />
-                </div>
-                <BarChartCard title="Alex are mere " />
-                <PieChartCard title="Alex are mere " />
-            </div> */}
             <Grid
                 container
                 style={{
@@ -54,26 +24,26 @@ export function Analytics() {
                     <Grid container width={'100%'}>
                         <Grid xs={12} lg={6}>
                             <Card className="card">
-                                <h1>Temperature</h1>
-                                <h1>25*C</h1>
+                                <h3>Temperature</h3>
+                                <h3>25*C</h3>
                             </Card>
                         </Grid>
                         <Grid xs={12} lg={6}>
                             <Card className="card">
-                                <h1>Temperature</h1>
-                                <h1>25*C</h1>
+                                <h3>Temperature</h3>
+                                <h3>25*C</h3>
                             </Card>
                         </Grid>
                         <Grid xs={12} lg={6}>
                             <Card className="card">
-                                <h1>Temperature</h1>
-                                <h1>25*C</h1>
+                                <h3>Temperature</h3>
+                                <h3>25*C</h3>
                             </Card>
                         </Grid>
                         <Grid xs={12} lg={6}>
                             <Card className="card">
-                                <h1>Soil Humidity</h1>
-                                <h1>58%</h1>
+                                <h3>Soil Humidity</h3>
+                                <h3>58%</h3>
                             </Card>
                         </Grid>
                     </Grid>
