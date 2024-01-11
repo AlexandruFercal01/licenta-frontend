@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import { Main } from './components/pages/MainPage'
 import { Header } from './components/common/Header'
@@ -9,25 +9,81 @@ import { Dashboard } from './components/pages/Dashboard'
 import { MyPlants } from './components/pages/MyPlants'
 import { PlantInspector } from './components/pages/PlantInspector'
 import { Analytics } from './components/pages/Analytics'
+import { Login } from './components/pages/Login'
 
 //pages
 
 function App() {
     return (
         <div>
-            <Header />
-            <div className="body">
-                <SidePanel />
+            {/* <Header /> */}
 
-                <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/plants" element={<MyPlants />} />
-                    <Route path="/inspector" element={<PlantInspector />} />
-                    <Route path="/analytics" element={<Analytics />} />
-                    <Route path="/*" element={<div>404</div>} />
-                </Routes>
-            </div>
+            {/* <SidePanel /> */}
+
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route
+                    path="/"
+                    element={
+                        <div>
+                            <Header />
+                            <div className="body">
+                                <SidePanel />
+                                <Main />
+                            </div>
+                        </div>
+                    }
+                />
+                <Route
+                    path="/dashboard"
+                    element={
+                        <div>
+                            <Header />
+                            <div className="body">
+                                <SidePanel />
+                                <Dashboard />
+                            </div>
+                        </div>
+                    }
+                />
+                <Route
+                    path="/plants"
+                    element={
+                        <div>
+                            <Header />
+                            <div className="body">
+                                <SidePanel />
+                                <MyPlants />
+                            </div>
+                        </div>
+                    }
+                />
+                <Route
+                    path="/inspector"
+                    element={
+                        <div>
+                            <Header />
+                            <div className="body">
+                                <SidePanel />
+                                <PlantInspector />
+                            </div>
+                        </div>
+                    }
+                />
+                <Route
+                    path="/analytics"
+                    element={
+                        <div>
+                            <Header />
+                            <div className="body">
+                                <SidePanel />
+                                <Analytics />
+                            </div>
+                        </div>
+                    }
+                />
+                <Route path="/*" element={<div>404</div>} />
+            </Routes>
         </div>
     )
 }
