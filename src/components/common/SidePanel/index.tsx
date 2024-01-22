@@ -5,103 +5,92 @@ import SpeedRoundedIcon from '@mui/icons-material/SpeedRounded'
 import GrassRoundedIcon from '@mui/icons-material/GrassRounded'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded'
-import { Button, Divider, IconButton } from '@mui/material'
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded'
+
+import { Button } from '@mui/material'
 
 //logos
-import mail from '../../assets/mail.png'
-import github from '../../assets/github.png'
-import linkedin from '../../assets/linkedin.png'
 
 import './styles.css'
 import { useNavigate } from 'react-router-dom'
 
-export function SidePanel() {
+type SidePanelProps = {
+    isMenuOpen: boolean
+}
+
+export function SidePanel({ isMenuOpen }: SidePanelProps) {
     const navigate = useNavigate()
 
     return (
-        <div className="sidePanel">
+        <div
+            className="sidePanel"
+            style={{
+                width: isMenuOpen ? '' : '0px',
+            }}
+        >
             <div className="buttonsContainer">
-                <h2>Pages</h2>
-                <Divider />
                 <div className="sideBtnContainer">
                     <Button
+                        color="success"
                         className="Button"
-                        variant="outlined"
-                        startIcon={<SpeedRoundedIcon sx={{ color: 'black' }} />}
+                        startIcon={<HomeRoundedIcon sx={{ color: 'white' }} />}
                         onClick={() => {
                             navigate('/')
                         }}
+                        style={{ justifyContent: 'flex-start' }}
                     >
-                        Main Page
+                        Pagina Principală
                     </Button>
                     <Button
+                        color="success"
                         className="Button"
-                        variant="outlined"
-                        startIcon={<SpeedRoundedIcon sx={{ color: 'black' }} />}
+                        startIcon={<SpeedRoundedIcon sx={{ color: 'white' }} />}
                         onClick={() => {
                             navigate('/dashboard')
                         }}
+                        style={{ justifyContent: 'flex-start' }}
                     >
-                        Dashboard
+                        Panou de control
                     </Button>
                     <Button
+                        color="success"
                         className="Button"
-                        variant="outlined"
-                        startIcon={<GrassRoundedIcon sx={{ color: 'black' }} />}
+                        startIcon={<GrassRoundedIcon sx={{ color: 'white' }} />}
                         onClick={() => {
                             navigate('/plants')
                         }}
+                        style={{
+                            justifyContent: 'flex-start',
+                        }}
                     >
-                        My plants
+                        Plantele Mele
                     </Button>
                     <Button
+                        color="success"
                         className="Button"
-                        variant="outlined"
                         startIcon={
-                            <SearchRoundedIcon sx={{ color: 'black' }} />
+                            <SearchRoundedIcon sx={{ color: 'white' }} />
                         }
                         onClick={() => {
                             navigate('/inspector')
                         }}
+                        style={{ justifyContent: 'flex-start' }}
                     >
-                        Plant inspector
+                        Oracol Plante
                     </Button>
                     <Button
+                        color="success"
                         className="Button"
-                        variant="outlined"
                         startIcon={
-                            <BarChartRoundedIcon sx={{ color: 'black' }} />
+                            <BarChartRoundedIcon sx={{ color: 'white' }} />
                         }
                         onClick={() => {
                             navigate('/analytics')
                         }}
+                        style={{ justifyContent: 'flex-start' }}
                     >
-                        Analytics
+                        Statistici
                     </Button>
-                </div>
-            </div>
-            <div className="contactContainer">
-                <h2>Contact</h2>
-                <Divider />
-                <div className="contactIcons">
-                    <IconButton
-                        sx={{ height: '60px', width: '60px', margin: '10px' }}
-                    >
-                        {' '}
-                        <img src={github} height="50px" />
-                    </IconButton>
-                    <IconButton
-                        sx={{ height: '60px', width: '60px', margin: '10px' }}
-                    >
-                        {' '}
-                        <img src={mail} height="50px" />
-                    </IconButton>
-                    <IconButton
-                        sx={{ height: '60px', width: '60px', margin: '10px' }}
-                    >
-                        {' '}
-                        <img src={linkedin} height="50px" />
-                    </IconButton>
                 </div>
             </div>
         </div>

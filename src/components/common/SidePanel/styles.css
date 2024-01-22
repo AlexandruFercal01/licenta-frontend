@@ -1,40 +1,42 @@
 .sidePanel {
-    width: 30%;
-    height: 80vh;
+    width: 25%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    background-color: #00563b;
+    border-radius: 0px 16px 16px 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: ease 300ms;
 }
 
 .buttonsContainer {
-    height: 80%;
+    height: 100%;
+    margin: 10px;
 }
 
 .sideBtnContainer {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    margin-top: 10px;
+    justify-content: flex-start;
+    margin-top: 30%;
 }
 
 .Button {
-    color: #79ac78 !important;
-    width: 90%;
-    height: 12%;
-    border: 1px solid #ffffff !important;
-    border-radius: 20px !important;
-    text-transform: none !important;
-    font-size: large !important;
-    box-shadow: 0px 3px 15px rgba(9, 64, 29, 0.2) !important;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px !important;
+    border: 0px;
+    color: white !important;
+    text-align: left !important;
 }
 
 .Button:hover {
-    color: #ffffff !important;
-    background-color: #79ac78 !important;
-    border: 1px solid #79ac78 !important;
+    background-color: #146a4f !important;
+    border-radius: 16px;
 }
 
 .line {
@@ -42,16 +44,4 @@
     height: 3px;
     background-color: black;
     border-radius: 0px 16px 16px 0px;
-}
-
-.contactContainer {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-}
-
-.contactIcons {
-    height: 100%;
-    display: flex;
-    justify-content: center;
 }

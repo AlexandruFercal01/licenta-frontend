@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles.css'
 import { Route, Routes } from 'react-router-dom'
 
@@ -15,6 +15,8 @@ import { ProtectedRoute } from './ProtectedRoute'
 //pages
 
 function App() {
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
     return (
         <div>
             <Routes>
@@ -25,9 +27,12 @@ function App() {
                         path="/"
                         element={
                             <div>
-                                <Header />
+                                <Header
+                                    isMenuOpen={isMenuOpen}
+                                    setIsMenuOpen={setIsMenuOpen}
+                                />
                                 <div className="body">
-                                    <SidePanel />
+                                    <SidePanel isMenuOpen={isMenuOpen} />
                                     <Main />
                                 </div>
                             </div>
@@ -37,10 +42,12 @@ function App() {
                         path="/dashboard"
                         element={
                             <div>
-                                <Header />
+                                <Header
+                                    isMenuOpen={isMenuOpen}
+                                    setIsMenuOpen={setIsMenuOpen}
+                                />
                                 <div className="body">
-                                    <SidePanel />
-
+                                    <SidePanel isMenuOpen={isMenuOpen} />
                                     <Dashboard />
                                 </div>
                             </div>
@@ -50,9 +57,12 @@ function App() {
                         path="/plants"
                         element={
                             <div>
-                                <Header />
+                                <Header
+                                    isMenuOpen={isMenuOpen}
+                                    setIsMenuOpen={setIsMenuOpen}
+                                />
                                 <div className="body">
-                                    <SidePanel />
+                                    <SidePanel isMenuOpen={isMenuOpen} />
                                     <MyPlants />
                                 </div>
                             </div>
@@ -62,9 +72,12 @@ function App() {
                         path="/inspector"
                         element={
                             <div>
-                                <Header />
+                                <Header
+                                    isMenuOpen={isMenuOpen}
+                                    setIsMenuOpen={setIsMenuOpen}
+                                />
                                 <div className="body">
-                                    <SidePanel />
+                                    <SidePanel isMenuOpen={isMenuOpen} />
                                     <PlantInspector />
                                 </div>
                             </div>
@@ -74,9 +87,12 @@ function App() {
                         path="/analytics"
                         element={
                             <div>
-                                <Header />
+                                <Header
+                                    isMenuOpen={isMenuOpen}
+                                    setIsMenuOpen={setIsMenuOpen}
+                                />
                                 <div className="body">
-                                    <SidePanel />
+                                    <SidePanel isMenuOpen={isMenuOpen} />
                                     <Analytics />
                                 </div>
                             </div>

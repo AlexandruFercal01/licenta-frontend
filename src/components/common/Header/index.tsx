@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import './styles.css'
 
 //material ui
@@ -13,12 +13,18 @@ import {
     Typography,
 } from '@mui/material'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 
 //assets
 import logo from '../../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
 
-export function Header() {
+type HeaderProps = {
+    isMenuOpen: boolean
+    setIsMenuOpen: Dispatch<SetStateAction<boolean>>
+}
+
+export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
     const [notificationAnchor, setnotificationAnchor] =
         React.useState<HTMLButtonElement | null>(null)
     const [profileAnchor, setProfileAnchor] =
@@ -42,6 +48,18 @@ export function Header() {
                     marginRight: '10px',
                 }}
             >
+                <IconButton
+                    sx={{
+                        marginRight: '15px',
+                        color: 'black',
+                        fontSize: 'large',
+                    }}
+                    onClick={() => {
+                        setIsMenuOpen(!isMenuOpen)
+                    }}
+                >
+                    <MenuRoundedIcon fontSize="large" />
+                </IconButton>
                 <IconButton
                     sx={{
                         marginRight: '15px',
