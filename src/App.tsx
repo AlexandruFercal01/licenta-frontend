@@ -10,78 +10,79 @@ import { MyPlants } from './components/pages/MyPlants'
 import { PlantInspector } from './components/pages/PlantInspector'
 import { Analytics } from './components/pages/Analytics'
 import { Login } from './components/pages/Login'
+import { ProtectedRoute } from './ProtectedRoute'
 
 //pages
 
 function App() {
     return (
         <div>
-            {/* <Header /> */}
-
-            {/* <SidePanel /> */}
-
             <Routes>
                 <Route path="/login" element={<Login />} />
-                <Route
-                    path="/"
-                    element={
-                        <div>
-                            <Header />
-                            <div className="body">
-                                <SidePanel />
-                                <Main />
+
+                <Route element={<ProtectedRoute />}>
+                    <Route
+                        path="/"
+                        element={
+                            <div>
+                                <Header />
+                                <div className="body">
+                                    <SidePanel />
+                                    <Main />
+                                </div>
                             </div>
-                        </div>
-                    }
-                />
-                <Route
-                    path="/dashboard"
-                    element={
-                        <div>
-                            <Header />
-                            <div className="body">
-                                <SidePanel />
-                                <Dashboard />
+                        }
+                    />
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <div>
+                                <Header />
+                                <div className="body">
+                                    <SidePanel />
+
+                                    <Dashboard />
+                                </div>
                             </div>
-                        </div>
-                    }
-                />
-                <Route
-                    path="/plants"
-                    element={
-                        <div>
-                            <Header />
-                            <div className="body">
-                                <SidePanel />
-                                <MyPlants />
+                        }
+                    />
+                    <Route
+                        path="/plants"
+                        element={
+                            <div>
+                                <Header />
+                                <div className="body">
+                                    <SidePanel />
+                                    <MyPlants />
+                                </div>
                             </div>
-                        </div>
-                    }
-                />
-                <Route
-                    path="/inspector"
-                    element={
-                        <div>
-                            <Header />
-                            <div className="body">
-                                <SidePanel />
-                                <PlantInspector />
+                        }
+                    />
+                    <Route
+                        path="/inspector"
+                        element={
+                            <div>
+                                <Header />
+                                <div className="body">
+                                    <SidePanel />
+                                    <PlantInspector />
+                                </div>
                             </div>
-                        </div>
-                    }
-                />
-                <Route
-                    path="/analytics"
-                    element={
-                        <div>
-                            <Header />
-                            <div className="body">
-                                <SidePanel />
-                                <Analytics />
+                        }
+                    />
+                    <Route
+                        path="/analytics"
+                        element={
+                            <div>
+                                <Header />
+                                <div className="body">
+                                    <SidePanel />
+                                    <Analytics />
+                                </div>
                             </div>
-                        </div>
-                    }
-                />
+                        }
+                    />
+                </Route>
                 <Route path="/*" element={<div>404</div>} />
             </Routes>
         </div>

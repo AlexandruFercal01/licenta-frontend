@@ -1,19 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './styles.css'
 
 //material ui
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded'
-import { Avatar, Badge, IconButton, Popover } from '@mui/material'
+import {
+    Avatar,
+    Badge,
+    Button,
+    Divider,
+    IconButton,
+    Popover,
+    Typography,
+} from '@mui/material'
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
 
 //assets
 import logo from '../../assets/logo.png'
+import { useNavigate } from 'react-router-dom'
 
 export function Header() {
-    const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
-        null
-    )
+    const [notificationAnchor, setnotificationAnchor] =
+        React.useState<HTMLButtonElement | null>(null)
+    const [profileAnchor, setProfileAnchor] =
+        React.useState<HTMLButtonElement | null>(null)
 
-    const open = Boolean(anchorEl)
+    const openNotifications = Boolean(notificationAnchor)
+    const openProfile = Boolean(profileAnchor)
+    const navigate = useNavigate()
 
     return (
         <div className="header">
@@ -36,7 +49,7 @@ export function Header() {
                         fontSize: 'large',
                     }}
                     onClick={(e) => {
-                        setAnchorEl(e.currentTarget)
+                        setnotificationAnchor(e.currentTarget)
                     }}
                 >
                     <Badge badgeContent={4} color="success">
@@ -45,10 +58,10 @@ export function Header() {
                     </Badge>
                 </IconButton>
                 <Popover
-                    open={open}
-                    anchorEl={anchorEl}
+                    open={openNotifications}
+                    anchorEl={notificationAnchor}
                     onClose={() => {
-                        setAnchorEl(null)
+                        setnotificationAnchor(null)
                     }}
                     anchorOrigin={{
                         vertical: 'bottom',
@@ -59,9 +72,78 @@ export function Header() {
                         horizontal: 'right',
                     }}
                 >
-                    Alex are mere!
+                    <div className="notificationsPopover">
+                        <div>
+                            <Typography variant="h6">
+                                <b>Title</b>
+                            </Typography>
+                            <p>
+                                This notification notifies the user about whtat
+                                the notifications system sent.
+                            </p>
+                            <Divider />
+                        </div>
+                        <div>
+                            <Typography variant="h6">
+                                <b>Title</b>
+                            </Typography>
+                            <p>
+                                This notification notifies the user about whtat
+                                the notifications system sent.
+                            </p>
+                            <Divider />
+                        </div>
+                        <div>
+                            <Typography variant="h6">
+                                <b>Title</b>
+                            </Typography>
+                            <p>
+                                This notification notifies the user about whtat
+                                the notifications system sent.
+                            </p>
+                            <Divider />
+                        </div>
+                    </div>
                 </Popover>
-                <Avatar />
+                <IconButton
+                    onClick={(e) => {
+                        setProfileAnchor(e.currentTarget)
+                    }}
+                >
+                    <Avatar />
+                </IconButton>
+                <Popover
+                    open={openProfile}
+                    anchorEl={profileAnchor}
+                    onClose={() => {
+                        setProfileAnchor(null)
+                    }}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                    transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
+                    sx={{ borderRadius: '16px' }}
+                >
+                    <div className="profilePopover">
+                        <Avatar sx={{ margin: '10px' }}>A</Avatar>
+                        <p>alex@gmail.com</p>
+                        <Divider />
+                        <Button
+                            variant="contained"
+                            style={{ margin: '10px', marginLeft: 'auto' }}
+                            color="success"
+                            onClick={() => {
+                                navigate('/login')
+                            }}
+                        >
+                            <LogoutRoundedIcon /> Deconectare
+                        </Button>
+                    </div>
+                </Popover>
             </div>
         </div>
     )
