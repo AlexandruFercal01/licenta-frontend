@@ -5,14 +5,9 @@
     flex-direction: column;
     background-color: #00563b;
     border-radius: 0px 16px 16px 0px;
-    margin-top: 15px;
     margin-bottom: 15px;
+    margin-top: 15px;
     transition: ease 300ms;
-}
-
-.buttonsContainer {
-    height: 100%;
-    margin: 10px;
 }
 
 .sideBtnContainer {
@@ -22,6 +17,8 @@
     align-items: center;
     justify-content: flex-start;
     margin-top: 30%;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .Button {

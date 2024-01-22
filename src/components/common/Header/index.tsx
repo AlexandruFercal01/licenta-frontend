@@ -17,6 +17,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 
 //assets
 import logo from '../../assets/logo.png'
+import farmer from '../../assets/farmer.png'
 import { useNavigate } from 'react-router-dom'
 
 type HeaderProps = {
@@ -71,7 +72,6 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                     }}
                 >
                     <Badge badgeContent={4} color="success">
-                        {' '}
                         <NotificationsNoneRoundedIcon fontSize="large" />
                     </Badge>
                 </IconButton>
@@ -128,7 +128,7 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                         setProfileAnchor(e.currentTarget)
                     }}
                 >
-                    <Avatar />
+                    <Avatar src={farmer} />
                 </IconButton>
                 <Popover
                     open={openProfile}
@@ -147,9 +147,18 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                     sx={{ borderRadius: '16px' }}
                 >
                     <div className="profilePopover">
-                        <Avatar sx={{ margin: '10px' }}>A</Avatar>
-                        <p>alex@gmail.com</p>
-                        <Divider />
+                        <div
+                            style={{
+                                width: '90%',
+                                paddingLeft: '25px',
+                                paddingRight: '25px',
+                            }}
+                        >
+                            <Avatar sx={{ margin: '10px' }} src={farmer}>
+                                A
+                            </Avatar>
+                            <p>alex@gmail.com</p>
+                        </div>
                         <Button
                             variant="contained"
                             style={{ margin: '10px', marginLeft: 'auto' }}

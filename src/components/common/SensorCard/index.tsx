@@ -18,7 +18,7 @@ export function SensorCard({ name, value, unit_value, icon }: Props) {
                 <div
                     style={{
                         height: '200px',
-                        width: '150px',
+                        width: '170px',
                         position: 'relative',
                         display: 'flex',
                         justifyContent: 'center',
@@ -63,7 +63,7 @@ export function SensorCard({ name, value, unit_value, icon }: Props) {
                     borderRadius: '15px',
                 }}
             >
-                <h2>{name}</h2>
+                <h3>{name}</h3>
                 {icon}
             </div>
         </Card>

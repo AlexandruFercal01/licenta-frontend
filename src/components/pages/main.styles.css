@@ -20,7 +20,6 @@
 }
 
 .content {
-    color: white;
     padding: 10px;
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.24) !important;
@@ -28,6 +27,9 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(7.3px) !important;
     -webkit-backdrop-filter: blur(7.3px) !important ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .goToContainer {

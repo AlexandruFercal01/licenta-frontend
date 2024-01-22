@@ -37,7 +37,11 @@ export function SidePanel({ isMenuOpen }: SidePanelProps) {
                         onClick={() => {
                             navigate('/')
                         }}
-                        style={{ justifyContent: 'flex-start' }}
+                        style={{
+                            justifyContent: 'flex-start',
+                            display: isMenuOpen ? '' : 'none',
+                        }}
+                        sx={{ fontFamily: 'Nunito', fontSize: '17px' }}
                     >
                         Pagina Principală
                     </Button>
@@ -48,7 +52,11 @@ export function SidePanel({ isMenuOpen }: SidePanelProps) {
                         onClick={() => {
                             navigate('/dashboard')
                         }}
-                        style={{ justifyContent: 'flex-start' }}
+                        style={{
+                            justifyContent: 'flex-start',
+                            display: isMenuOpen ? '' : 'none',
+                        }}
+                        sx={{ fontFamily: 'Nunito', fontSize: '17px' }}
                     >
                         Panou de control
                     </Button>
@@ -61,7 +69,9 @@ export function SidePanel({ isMenuOpen }: SidePanelProps) {
                         }}
                         style={{
                             justifyContent: 'flex-start',
+                            display: isMenuOpen ? '' : 'none',
                         }}
+                        sx={{ fontFamily: 'Nunito', fontSize: '17px' }}
                     >
                         Plantele Mele
                     </Button>
@@ -69,12 +79,19 @@ export function SidePanel({ isMenuOpen }: SidePanelProps) {
                         color="success"
                         className="Button"
                         startIcon={
-                            <SearchRoundedIcon sx={{ color: 'white' }} />
+                            <SearchRoundedIcon
+                                sx={{ color: 'white' }}
+                                fontSize="large"
+                            />
                         }
                         onClick={() => {
                             navigate('/inspector')
                         }}
-                        style={{ justifyContent: 'flex-start' }}
+                        style={{
+                            justifyContent: 'flex-start',
+                            display: isMenuOpen ? '' : 'none',
+                        }}
+                        sx={{ fontFamily: 'Nunito', fontSize: '17px' }}
                     >
                         Oracol Plante
                     </Button>
@@ -87,7 +104,11 @@ export function SidePanel({ isMenuOpen }: SidePanelProps) {
                         onClick={() => {
                             navigate('/analytics')
                         }}
-                        style={{ justifyContent: 'flex-start' }}
+                        style={{
+                            justifyContent: 'flex-start',
+                            display: isMenuOpen ? '' : 'none',
+                        }}
+                        sx={{ fontFamily: 'Nunito', fontSize: '17px' }}
                     >
                         Statistici
                     </Button>
