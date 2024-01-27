@@ -1,5 +1,5 @@
 import { Card, Switch } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './styles.css'
 
 type Props = {
@@ -8,21 +8,11 @@ type Props = {
 }
 
 export function ControlCard({ name, on }: Props) {
-    const [checkedColor, setCheckedColor] = useState<string>('')
-
-    useEffect(() => {
-        if (on) {
-            setCheckedColor('#79ac78')
-        } else {
-            setCheckedColor('#FFFFFF')
-        }
-    }, [on])
-
     return (
         <Card
             sx={{
-                width: 'fit-content',
                 padding: '10px',
+                minWidth: '200px',
             }}
             className="controlCard"
         >

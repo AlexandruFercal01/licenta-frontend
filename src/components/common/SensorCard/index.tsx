@@ -14,57 +14,60 @@ type Props = {
 export function SensorCard({ name, value, unit_value, icon }: Props) {
     return (
         <Card className="sensorCard">
-            <div className="leftSide">
-                <div
-                    style={{
-                        height: '200px',
-                        width: '170px',
-                        position: 'relative',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <CircularProgressbar
-                        value={value}
-                        circleRatio={0.8}
-                        styles={{
-                            root: { transform: 'rotate(0.6turn)' },
-                            path: {
-                                stroke: '#79ac78',
-                                strokeLinecap: 'round',
-                                transition: 'stroke-dashoffset 0.8s ease 0s',
-                            },
-                            text: {
-                                transform: 'none',
-                                textAlign: 'center',
-                            },
-                            trail: {
-                                stroke: '#d6d6d6',
-                                strokeLinecap: 'round',
-                            },
+            <h3 style={{ marginBottom: '5px' }}>{name}</h3>
+            <div className="cardContent">
+                <div className="leftSide">
+                    <div
+                        style={{
+                            height: '200px',
+                            width: '170px',
+                            position: 'relative',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
                         }}
-                    />
-                    <div className="unitValueContainer">
-                        <h2>{value + unit_value}</h2>
+                    >
+                        <CircularProgressbar
+                            value={value}
+                            circleRatio={0.8}
+                            styles={{
+                                root: { transform: 'rotate(0.6turn)' },
+                                path: {
+                                    stroke: '#79ac78',
+                                    strokeLinecap: 'round',
+                                    transition:
+                                        'stroke-dashoffset 0.8s ease 0s',
+                                },
+                                text: {
+                                    transform: 'none',
+                                    textAlign: 'center',
+                                },
+                                trail: {
+                                    stroke: '#d6d6d6',
+                                    strokeLinecap: 'round',
+                                },
+                            }}
+                        />
+                        <div className="unitValueContainer">
+                            <h2>{value + unit_value}</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    // marginLeft: '10px',
-                    width: '100%',
-                    backgroundColor: '#F0F0F0',
-                    margin: '15px',
-                    borderRadius: '15px',
-                }}
-            >
-                <h3>{name}</h3>
-                {icon}
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        // marginLeft: '10px',
+                        width: '100%',
+                        backgroundColor: '#F0F0F0',
+                        margin: '15px',
+                        borderRadius: '15px',
+                    }}
+                >
+                    {icon}
+                </div>
             </div>
         </Card>
     )

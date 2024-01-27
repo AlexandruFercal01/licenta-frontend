@@ -16,19 +16,10 @@ type Icon = {
 }
 
 const IconType: Icon = {
-    temperature: (
-        <DeviceThermostatRoundedIcon
-            sx={{ fontSize: '100px' }}
-            className="icon"
-        />
-    ),
-    soil_humidity: (
-        <WaterDropRoundedIcon sx={{ fontSize: '100px' }} className="icon" />
-    ),
-    light: <LightModeRoundedIcon sx={{ fontSize: '100px' }} className="icon" />,
-    air_humidity: (
-        <WaterDamageRoundedIcon sx={{ fontSize: '100px' }} className="icon" />
-    ),
+    temperature: <DeviceThermostatRoundedIcon className="icon" />,
+    soil_humidity: <WaterDropRoundedIcon className="icon" />,
+    light: <LightModeRoundedIcon className="icon" />,
+    air_humidity: <WaterDamageRoundedIcon className="icon" />,
 }
 
 export function Dashboard() {
