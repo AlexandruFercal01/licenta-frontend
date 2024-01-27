@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './styles.css'
 
 //material ui
@@ -18,7 +19,6 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 //assets
 import logo from '../../assets/logo.png'
 import farmer from '../../assets/farmer.png'
-import { useNavigate } from 'react-router-dom'
 
 type HeaderProps = {
     isMenuOpen: boolean
@@ -40,18 +40,19 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
             <div className="headerName">
                 <img src={logo} height="50px" />
                 <div style={{ width: '10px' }} />
-                <h2>Plantario</h2>
+                <h2 className="title">Plantario</h2>
             </div>
             <div
                 style={{
                     display: 'flex',
                     flexDirection: 'row',
-                    marginRight: '10px',
+                    margin: '10px',
                 }}
             >
                 <IconButton
+                    className="menuBtn"
                     sx={{
-                        marginRight: '15px',
+                        margin: '0 5px',
                         color: 'black',
                         fontSize: 'large',
                     }}
@@ -63,7 +64,7 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                 </IconButton>
                 <IconButton
                     sx={{
-                        marginRight: '15px',
+                        margin: '0 5px',
                         color: 'black',
                         fontSize: 'large',
                     }}

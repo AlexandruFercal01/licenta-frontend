@@ -1,0 +1,10 @@
+@media only screen and (max-width: 768px) {
+    .bottomPanel {
+        width: 100%;
+        height: 42px;
+        display: flex;
+        justify-content: space-around;
+        background-color: #00563b;
+        margin-bottom: 0px;
+    }
+}
