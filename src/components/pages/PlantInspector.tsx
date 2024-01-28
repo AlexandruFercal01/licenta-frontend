@@ -56,7 +56,6 @@ export function PlantInspector() {
                     component={Paper}
                     sx={{
                         borderRadius: '20px',
-                        padding: '5px',
                         boxShadow:
                             'rgba(0 0 0 0.16) 0px 3px 6px rgba(0 0 0 0.23) 0px 3px 6px ',
                     }}
@@ -64,7 +63,14 @@ export function PlantInspector() {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>
+                                <TableCell
+                                    style={{
+                                        position: 'sticky',
+                                        left: 0,
+                                        background: 'white',
+                                        zIndex: '9999 !important',
+                                    }}
+                                >
                                     <h3>Common Name</h3>
                                 </TableCell>
                                 <TableCell>
@@ -86,12 +92,30 @@ export function PlantInspector() {
                         </TableHead>
                         <TableBody>
                             {plantArray.length === 0 ? (
-                                <h1 style={{ marginLeft: '10px' }}>No items</h1>
+                                <TableCell
+                                    style={{
+                                        position: 'sticky',
+                                        left: 0,
+                                        background: 'white',
+                                        zIndex: '9999 !important',
+                                    }}
+                                >
+                                    <h2 style={{ marginLeft: '10px' }}>
+                                        No items
+                                    </h2>
+                                </TableCell>
                             ) : (
                                 plantArray.data.map((plant: any) => (
                                     // eslint-disable-next-line react/jsx-key
                                     <TableRow>
-                                        <TableCell>
+                                        <TableCell
+                                            style={{
+                                                position: 'sticky',
+                                                left: 0,
+                                                background: 'white',
+                                                zIndex: '9999 !important',
+                                            }}
+                                        >
                                             <h5>{plant.common_name}</h5>
                                         </TableCell>
                                         <TableCell>
