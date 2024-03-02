@@ -1,24 +1,30 @@
 import { Button, TextField } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
 import './login.styles.css'
+import axios from 'axios'
 
 import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
 
 export function Login() {
     const navigate = useNavigate()
-    const email = useRef()
-    const password = useRef()
+    const email = useRef<HTMLInputElement>()
+    const password = useRef<HTMLInputElement>()
 
     useEffect(() => {
         localStorage.clear()
     }, [])
 
-    const handleSubmit = () => {
-        if (email.current !== 'alex@gmail.com' && password.current !== '1234') {
-            localStorage.setItem('isLogged', 'true')
-            navigate('/')
-        }
+    const handleSubmit = async () => {
+        await axios
+            .post('http://localhost:3001/login', {
+                email: email.current.value,
+                password: password.current.value,
+            })
+            .then((res) => {
+                localStorage.setItem('token', res.data.token)
+                navigate('/dashboard')
+            })
     }
 
     return (
