@@ -1,10 +1,13 @@
 import { Button, TextField } from '@mui/material'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './login.styles.css'
 import axios from 'axios'
 
 import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
+import Alert from '@mui/material'
+import { toggleAlert } from '../common/AlertSnackbar'
+import { Severity } from '../common/AlertSnackbar'
 
 export function Login() {
     const navigate = useNavigate()
@@ -24,6 +27,22 @@ export function Login() {
             .then((res) => {
                 localStorage.setItem('token', res.data.token)
                 navigate('/dashboard')
+                if (res.status === 200) {
+                    console.log(res.status)
+                    toggleAlert({
+                        open: true,
+                        message: 'Login successful',
+                        severity: Severity.success,
+                    })
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+                toggleAlert({
+                    open: true,
+                    message: err.response.data.error || 'Login failed',
+                    severity: Severity.error,
+                })
             })
     }
 

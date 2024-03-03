@@ -12,6 +12,7 @@ import { Analytics } from './components/pages/Analytics'
 import { Login } from './components/pages/Login'
 import { ProtectedRoute } from './ProtectedRoute'
 import { BottomPanel } from './components/common/BottomPanel'
+import { SnackbarProvider } from 'notistack'
 
 //pages
 
@@ -30,31 +31,33 @@ function App() {
     )
 
     return (
-        <div>
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route element={<ProtectedRoute />}>
-                    <Route path="/" element={renderContent(<Main />)} />
-                    <Route
-                        path="/dashboard"
-                        element={renderContent(<Dashboard />)}
-                    />
-                    <Route
-                        path="/plants"
-                        element={renderContent(<MyPlants />)}
-                    />
-                    <Route
-                        path="/inspector"
-                        element={renderContent(<PlantInspector />)}
-                    />
-                    <Route
-                        path="/analytics"
-                        element={renderContent(<Analytics />)}
-                    />
-                </Route>
-                <Route path="/*" element={<div>404</div>} />
-            </Routes>
-        </div>
+        <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
+            <div>
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route element={<ProtectedRoute />}>
+                        <Route path="/" element={renderContent(<Main />)} />
+                        <Route
+                            path="/dashboard"
+                            element={renderContent(<Dashboard />)}
+                        />
+                        <Route
+                            path="/plants"
+                            element={renderContent(<MyPlants />)}
+                        />
+                        <Route
+                            path="/inspector"
+                            element={renderContent(<PlantInspector />)}
+                        />
+                        <Route
+                            path="/analytics"
+                            element={renderContent(<Analytics />)}
+                        />
+                    </Route>
+                    <Route path="/*" element={<div>404</div>} />
+                </Routes>
+            </div>
+        </SnackbarProvider>
     )
 }
 
