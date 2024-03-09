@@ -15,7 +15,6 @@ type Props = {
 
 export function toggleAlert({ ...props }: Props) {
     enqueueSnackbar(props.message, {
-        // variant: Severity[props.severity],
         autoHideDuration: props.autoHideDuration || 5000,
         anchorOrigin: {
             vertical: 'bottom',
@@ -23,7 +22,7 @@ export function toggleAlert({ ...props }: Props) {
         },
         style: {
             backgroundColor:
-                props.severity === Severity.error ? 'red' : 'green',
+                props.severity === Severity.error ? 'red' : '#00563b',
         },
     })
 }

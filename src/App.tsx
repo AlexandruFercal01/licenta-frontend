@@ -13,6 +13,7 @@ import { Login } from './components/pages/Login'
 import { ProtectedRoute } from './ProtectedRoute'
 import { BottomPanel } from './components/common/BottomPanel'
 import { SnackbarProvider } from 'notistack'
+import { Notifications } from 'react-push-notification'
 
 //pages
 
@@ -32,6 +33,7 @@ function App() {
 
     return (
         <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
+            <Notifications />
             <div>
                 <Routes>
                     <Route path="/login" element={<Login />} />

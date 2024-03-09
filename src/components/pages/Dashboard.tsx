@@ -7,6 +7,9 @@ import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded'
 import WaterDropRoundedIcon from '@mui/icons-material/WaterDropRounded'
 import WaterDamageRoundedIcon from '@mui/icons-material/WaterDamageRounded'
 import { ControlCard } from '../common/ControlCard/indes'
+import { Button } from '@mui/material'
+import { toggleNotification } from '../common/Notification'
+import { Notifications } from 'react-push-notification'
 
 type Icon = {
     temperature: JSX.Element
