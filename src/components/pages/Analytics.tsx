@@ -4,57 +4,62 @@ import { PieChartCard } from '../common/PieChartCard/PieChartCard'
 
 import './analytics.styles.css'
 import { BarChartCard } from '../common/BarChartCard/BarChartCard'
-import { Card, Grid } from '@mui/material'
+import { Box, Slide, Tab, Tabs, Typography } from '@mui/material'
+import { TabContext, TabList, TabPanel } from '@mui/lab'
+
+interface TabPanelProps {
+    children?: React.ReactNode
+    index: number
+    value: number
+}
+
+function CustomTabPanel(props: TabPanelProps) {
+    return <>{props.value === props.index && <>{props.children}</>}</>
+}
 
 export function Analytics() {
+    const [value, setValue] = React.useState(0)
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue)
+    }
+
     return (
         <div className="container">
-            <Grid
-                container
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
-            >
-                <Grid xs={12} lg={5}>
-                    <LineChartCard title="Sensors values by type" />
-                </Grid>
-                <Grid xs={12} lg={7}>
-                    <Grid container width={'100%'}>
-                        <Grid xs={12} lg={6}>
-                            <Card className="card">
-                                <h3>Temperature</h3>
-                                <h3>25*C</h3>
-                            </Card>
-                        </Grid>
-                        <Grid xs={12} lg={6}>
-                            <Card className="card">
-                                <h3>Temperature</h3>
-                                <h3>25*C</h3>
-                            </Card>
-                        </Grid>
-                        <Grid xs={12} lg={6}>
-                            <Card className="card">
-                                <h3>Temperature</h3>
-                                <h3>25*C</h3>
-                            </Card>
-                        </Grid>
-                        <Grid xs={12} lg={6}>
-                            <Card className="card">
-                                <h3>Soil Humidity</h3>
-                                <h3>58%</h3>
-                            </Card>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid xs={12} lg={4}>
-                    <PieChartCard title="Sensors values by type" />
-                </Grid>
-                <Grid xs={12} lg={8}>
-                    <BarChartCard title="Sensors values by type" />
-                </Grid>
-            </Grid>
+            <Tabs centered>
+                <Tab
+                    label="Grafic"
+                    onClick={() => setValue(0)}
+                    sx={
+                        value === 0
+                            ? {
+                                  backgroundColor: 'white',
+                                  borderRadius: '16px 16px 0  0 ',
+                                  transition: 'ease 300ms',
+                              }
+                            : {}
+                    }
+                ></Tab>
+                <Tab
+                    label="Diagrama cu bare"
+                    onClick={() => setValue(1)}
+                    sx={
+                        value === 1
+                            ? {
+                                  backgroundColor: 'white',
+                                  borderRadius: '16px 16px 0  0 ',
+                                  transition: 'ease 300ms',
+                              }
+                            : {}
+                    }
+                ></Tab>
+            </Tabs>
+            <CustomTabPanel value={value} index={0}>
+                <LineChartCard />
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={1}>
+                <BarChartCard />
+            </CustomTabPanel>
         </div>
     )
 }

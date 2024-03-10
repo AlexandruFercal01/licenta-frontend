@@ -7,9 +7,9 @@ type Props = {
 }
 
 const style = {
-    height: '350px',
+    height: '70vh',
     borderRadius: '20px ',
-    margin: '10px',
+
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -17,10 +17,9 @@ const style = {
 
 const chartStyle = { shapeRendering: { borderRadius: '20px' } }
 
-export function BarChartCard({ title }: Props) {
+export function BarChartCard() {
     return (
         <Card sx={style}>
-            <h3>{title}</h3>
             <BarChart
                 xAxis={[
                     {
@@ -35,7 +34,7 @@ export function BarChartCard({ title }: Props) {
                     { data: [1, 2, 3, 4] },
                 ]}
                 sx={chartStyle}
-                height={300}
+                height={500}
             />
         </Card>
     )
