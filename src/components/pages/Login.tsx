@@ -8,21 +8,27 @@ import { useNavigate } from 'react-router-dom'
 import Alert from '@mui/material'
 import { toggleAlert } from '../common/AlertSnackbar'
 import { Severity } from '../common/AlertSnackbar'
+import { useForm } from 'react-hook-form'
+import { Label } from '@mui/icons-material'
+
+type LoginForm = {
+    email: string
+    password: string
+}
 
 export function Login() {
     const navigate = useNavigate()
-    const email = useRef<HTMLInputElement>()
-    const password = useRef<HTMLInputElement>()
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isValid },
+    } = useForm<LoginForm>()
 
-    useEffect(() => {
-        localStorage.clear()
-    }, [])
-
-    const handleSubmit = async () => {
+    const onSubmit = async (data: LoginForm) => {
         await axios
             .post('http://localhost:3001/login', {
-                email: email.current.value,
-                password: password.current.value,
+                email: data.email,
+                password: data.password,
             })
             .then((res) => {
                 localStorage.setItem('token', res.data.token)
@@ -47,27 +53,58 @@ export function Login() {
     }
 
     return (
-        <div className="mainContainer">
-            <div className="loginContainer">
-                <img src={logo} height="50px" />
-                <h2 style={{ marginTop: '0px' }}>Plantario</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mainContainer">
+                <div className="loginContainer">
+                    <img src={logo} height="50px" />
+                    <h2 style={{ marginTop: '0px' }}>Plantario</h2>
 
-                <TextField label={'Email'} color="success" inputRef={email} />
-                <TextField
-                    label={'Password'}
-                    color="success"
-                    type="password"
-                    inputRef={password}
-                />
-                <Button
-                    variant="contained"
-                    color="success"
-                    sx={{ backgroundColor: '#79ac78' }}
-                    onClick={handleSubmit}
-                >
-                    Sign in
-                </Button>
+                    <TextField
+                        id="email"
+                        {...register('email', {
+                            required: true,
+                            pattern: {
+                                value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
+                                message: 'This is not a valid email',
+                            },
+                        })}
+                        label={'Email'}
+                        color="success"
+                        required
+                        type="email"
+                        error={!isValid}
+                    />
+                    {errors.email && (
+                        <span>
+                            <p>{errors.email.message}</p>
+                        </span>
+                    )}
+                    <TextField
+                        id="password"
+                        {...register('password', {
+                            required: true,
+                        })}
+                        label={'Password'}
+                        color="success"
+                        type="password"
+                        error={!isValid}
+                    />
+                    {errors.password && (
+                        <span role="alert">
+                            <p>Please provide a password</p>
+                        </span>
+                    )}
+                    <Button
+                        variant="contained"
+                        color="success"
+                        sx={{ backgroundColor: '#79ac78' }}
+                        type="submit"
+                        disabled={!isValid}
+                    >
+                        Sign in
+                    </Button>
+                </div>
             </div>
-        </div>
+        </form>
     )
 }
