@@ -1,20 +1,15 @@
 import { Button, TextField } from '@mui/material'
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import './login.styles.css'
 import axios from 'axios'
 
 import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
-import Alert from '@mui/material'
 import { toggleAlert } from '../common/AlertSnackbar'
 import { Severity } from '../common/AlertSnackbar'
 import { useForm } from 'react-hook-form'
-import { Label } from '@mui/icons-material'
-
-type LoginForm = {
-    email: string
-    password: string
-}
+import { LoginForm } from '../../shared'
+import { authenticate } from '../../api/Users'
 
 export function Login() {
     const navigate = useNavigate()
@@ -27,11 +22,7 @@ export function Login() {
 
 
     const onSubmit = async (data: LoginForm) => {
-        await axios
-            .post('http://localhost:3001/login', {
-                email: data.email,
-                password: data.password,
-            })
+            authenticate(data)
             .then((res) => {
                 localStorage.setItem('token', res.data.token)
                 navigate('/dashboard')
