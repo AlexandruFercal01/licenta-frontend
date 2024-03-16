@@ -21,8 +21,10 @@ export function Login() {
     const {
         register,
         handleSubmit,
-        formState: { errors, isValid },
-    } = useForm<LoginForm>()
+        formState,
+    } = useForm<LoginForm>( {mode: 'onChange'})
+    const { errors, isValid } = formState;
+
 
     const onSubmit = async (data: LoginForm) => {
         await axios
@@ -62,7 +64,10 @@ export function Login() {
                     <TextField
                         id="email"
                         {...register('email', {
-                            required: true,
+                            required: {
+                                value: true,
+                                message: 'Email is required'
+                            },
                             pattern: {
                                 value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
                                 message: 'This is not a valid email',
@@ -72,28 +77,25 @@ export function Login() {
                         color="success"
                         required
                         type="email"
-                        error={!isValid}
+                        error={!!errors.email}
+                        helperText={errors.email ? errors.email.message : ''}
                     />
-                    {errors.email && (
-                        <span>
-                            <p>{errors.email.message}</p>
-                        </span>
-                    )}
+                    
                     <TextField
                         id="password"
                         {...register('password', {
-                            required: true,
+                            required: {
+                                value: true,
+                                message: 'Password is required'
+                            },
                         })}
                         label={'Password'}
                         color="success"
                         type="password"
-                        error={!isValid}
+                        error={!!errors.password}
+                        helperText={errors.password ? errors.password.message : ''}
                     />
-                    {errors.password && (
-                        <span role="alert">
-                            <p>Please provide a password</p>
-                        </span>
-                    )}
+                    
                     <Button
                         variant="contained"
                         color="success"
