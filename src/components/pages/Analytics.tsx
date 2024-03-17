@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LineChartCard } from '../common/LineChartCard/LineChartCard'
 import { PieChartCard } from '../common/PieChartCard/PieChartCard'
 
-import './analytics.styles.css'
+
 import { BarChartCard } from '../common/BarChartCard/BarChartCard'
 import { Box, Slide, Tab, Tabs, Typography } from '@mui/material'
 import { TabContext, TabList, TabPanel } from '@mui/lab'
+import './analytics.styles.css'
 
 interface TabPanelProps {
     children?: React.ReactNode
@@ -13,12 +14,13 @@ interface TabPanelProps {
     value: number
 }
 
+
 function CustomTabPanel(props: TabPanelProps) {
     return <>{props.value === props.index && <>{props.children}</>}</>
 }
 
 export function Analytics() {
-    const [value, setValue] = React.useState(0)
+    const [value, setValue] = useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
@@ -26,7 +28,7 @@ export function Analytics() {
 
     return (
         <div className="container">
-            <Tabs centered>
+            <Tabs centered value={value}>
                 <Tab
                     label="Grafic"
                     onClick={() => setValue(0)}

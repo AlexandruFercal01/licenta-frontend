@@ -6,6 +6,7 @@ import { ControlCard } from '../common/ControlCard/indes'
 import { getLatestValues } from '../../api/Sensors'
 import { DashboardSkeleton } from '../common/Skeleton'
 import { Icon, IconType, SensorsData } from '../../shared'
+import { toggleAlert } from '../common/AlertSnackbar'
 
 
 
@@ -17,6 +18,8 @@ export function Dashboard() {
         getLatestValues().then((res)=>{
             const response : SensorsData = {...res.data} as SensorsData;
             setSensorsData(response);
+        }).catch((err)=>{
+            toggleAlert(err.message);
         })
     }
 

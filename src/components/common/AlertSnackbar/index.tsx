@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@mui/material'
 import { enqueueSnackbar } from 'notistack'
 import React from 'react'
 
@@ -10,10 +11,11 @@ type Props = {
     open?: boolean
     message: string
     severity: Severity
-    autoHideDuration?: number
+    autoHideDuration?: number, 
 }
 
 export function toggleAlert({ ...props }: Props) {
+
     enqueueSnackbar(props.message, {
         autoHideDuration: props.autoHideDuration || 5000,
         anchorOrigin: {
@@ -22,7 +24,8 @@ export function toggleAlert({ ...props }: Props) {
         },
         style: {
             backgroundColor:
-                props.severity === Severity.error ? 'red' : '#00563b',
+                props.severity === Severity.error ? 'red' : '#2cbc63',
+
         },
     })
 }
