@@ -23,5 +23,6 @@ export function DashboardSkeleton(){
 
 
 export function MyPlantsSkeleton(){
-    return <div></div>
+    return  <Skeleton variant='rectangular' width={'98%'} height={300} sx={{margin: '10px', borderRadius:'20px'}}></Skeleton>
+    
 }

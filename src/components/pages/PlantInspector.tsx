@@ -14,22 +14,13 @@ import {
 } from '@mui/material'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
 import axios from 'axios'
+import { addPlantToFavourites, getFavouritePlantsIds, getPlantByName } from '../../api/Plants'
+import PlantNotFound from '../assets/plant_not_found.png'
+import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
 export function PlantInspector() {
     const [plantName, setPlantName] = useState<string>()
     const [plantArray, setPlantArray] = useState<any>([])
-
-    const getPlant = () => {
-        return axios
-            .get(
-                `https://perenual.com/api/species-list?key=sk-NdFz6547851e383142826&q=${plantName}`
-            )
-            .then((res) => setPlantArray(res.data))
-    }
-
-    useEffect(() => {
-        console.log(plantArray)
-    }, [plantArray])
 
     return (
         <div className="container">
@@ -46,7 +37,7 @@ export function PlantInspector() {
                 ></TextField>
                 <IconButton
                     className="searchBarButton"
-                    onClick={() => getPlant()}
+                    onClick={() => getPlantByName(plantName).then((res)=> setPlantArray(res))}
                 >
                     <SearchRoundedIcon fontSize="large" />
                 </IconButton>
@@ -80,9 +71,6 @@ export function PlantInspector() {
                                     <h3>Scientific Name</h3>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <h3>Cycle</h3>
-                                </TableCell>
-                                <TableCell align="right">
                                     <h3>Watering</h3>
                                 </TableCell>
                                 <TableCell align="right">
@@ -105,8 +93,7 @@ export function PlantInspector() {
                                     </h2>
                                 </TableCell>
                             ) : (
-                                plantArray.data.map((plant: any) => (
-                                    // eslint-disable-next-line react/jsx-key
+                                plantArray.data.map((plant: any) => ( 
                                     <TableRow>
                                         <TableCell
                                             style={{
@@ -117,26 +104,32 @@ export function PlantInspector() {
                                             }}
                                         >
                                             <h5>{plant.common_name}</h5>
+                                            <IconButton onClick={()=> addPlantToFavourites(plant.id)}><FavoriteRoundedIcon/></IconButton>
                                         </TableCell>
                                         <TableCell>
-                                            {plant.default_image?.small_url ? (
+                                            {plant.medium_url ? (
                                                 <img
                                                     src={
-                                                        plant.default_image
-                                                            ?.small_url
+                                                        plant.medium_url
                                                     }
                                                     width="200px"
                                                     height="200px"
                                                 />
                                             ) : (
-                                                ''
+                                                <div className='noImage'>
+                                                <img
+                                                    src={
+                                                        PlantNotFound
+                                                    }
+                                                    width="100px"
+                                                    height="100px"
+                                                />
+                                                <h5>Image not found</h5>
+                                                </div>
                                             )}
                                         </TableCell>
                                         <TableCell align="right">
                                             <h5>{plant.scientific_name}</h5>
-                                        </TableCell>
-                                        <TableCell align="right">
-                                            <h5>{plant.cycle}</h5>
                                         </TableCell>
                                         <TableCell align="right">
                                             <h5>{plant.watering}</h5>

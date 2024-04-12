@@ -28,6 +28,7 @@ export function Analytics() {
 
     return (
         <div className="container">
+            <div>
             <Tabs centered value={value}>
                 <Tab
                     label="Grafic"
@@ -62,6 +63,7 @@ export function Analytics() {
             <CustomTabPanel value={value} index={1}>
                 <BarChartCard />
             </CustomTabPanel>
+        </div>
         </div>
     )
 }
