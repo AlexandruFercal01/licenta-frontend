@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './styles.css'
 import { Route, Routes } from 'react-router-dom'
 
@@ -14,11 +14,33 @@ import { ProtectedRoute } from './ProtectedRoute'
 import { BottomPanel } from './components/common/BottomPanel'
 import { SnackbarProvider } from 'notistack'
 import { Notifications } from 'react-push-notification'
+import { io } from 'socket.io-client'
+import { useNotificationContext } from './components/context/notificationContext'
 
-//pages
+const SOCKET_SERVER_URL = 'http://localhost:3001'
 
 function App() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
+    const { notifications, addNotification } = useNotificationContext()
+
+    useEffect(() => {
+        // Establish a WebSocket connection to the server
+        const socket = io(SOCKET_SERVER_URL)
+
+        // Listen for the 'sensorAlert' event from the server
+        socket.on('sensorAlert', (data) => {
+            addNotification({
+                title: data.title,
+                message: data.message,
+            })
+        })
+
+        // Clean up the effect by disconnecting the socket when the component unmounts
+        return () => {
+            socket.disconnect()
+        }
+    }, [])
 
     const renderContent = (component: React.ReactNode) => (
         <div>

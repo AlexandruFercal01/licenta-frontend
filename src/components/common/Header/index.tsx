@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './styles.css'
 
@@ -19,6 +19,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 //assets
 import logo from '../../assets/logo.png'
 import farmer from '../../assets/farmer.png'
+import { useNotificationContext } from '../../context/notificationContext'
 
 type HeaderProps = {
     isMenuOpen: boolean
@@ -27,9 +28,11 @@ type HeaderProps = {
 
 export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
     const [notificationAnchor, setnotificationAnchor] =
-        React.useState<HTMLButtonElement | null>(null)
+        useState<HTMLButtonElement | null>(null)
     const [profileAnchor, setProfileAnchor] =
-        React.useState<HTMLButtonElement | null>(null)
+        useState<HTMLButtonElement | null>(null)
+
+    const { notificationCount, notifications, clearNotifications} = useNotificationContext();
 
     const openNotifications = Boolean(notificationAnchor)
     const openProfile = Boolean(profileAnchor)
@@ -72,7 +75,7 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                         setnotificationAnchor(e.currentTarget)
                     }}
                 >
-                    <Badge badgeContent={4} color="success">
+                    <Badge badgeContent={notificationCount} color="success">
                         <NotificationsNoneRoundedIcon fontSize="large" />
                     </Badge>
                 </IconButton>
@@ -92,36 +95,22 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                     }}
                 >
                     <div className="notificationsPopover">
-                        <div>
-                            <Typography variant="h6">
-                                <b>Title</b>
-                            </Typography>
-                            <p>
-                                This notification notifies the user about whtat
-                                the notifications system sent.
-                            </p>
-                            <Divider />
-                        </div>
-                        <div>
-                            <Typography variant="h6">
-                                <b>Title</b>
-                            </Typography>
-                            <p>
-                                This notification notifies the user about whtat
-                                the notifications system sent.
-                            </p>
-                            <Divider />
-                        </div>
-                        <div>
-                            <Typography variant="h6">
-                                <b>Title</b>
-                            </Typography>
-                            <p>
-                                This notification notifies the user about whtat
-                                the notifications system sent.
-                            </p>
-                            <Divider />
-                        </div>
+                       {
+                        notificationCount > 0 ?
+                           notifications.map((notification, index) => (
+                               <div>
+                               <Typography variant="h6">
+                                   <b>{notification.title}</b>
+                               </Typography>
+                               <p>
+                                   {notification.message}
+                               </p>
+                               <Divider />
+                           </div>
+
+                           )) : <p>No new notifications</p>
+                       }
+                       <Button onClick={() => clearNotifications()}> Clear Notifications</Button>
                     </div>
                 </Popover>
                 <IconButton
