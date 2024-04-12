@@ -25,12 +25,13 @@ export function Login() {
             authenticate(data)
             .then((res) => {
                 localStorage.setItem('token', res.data.token)
+                localStorage.setItem('email', res.data.email)
                 navigate('/dashboard')
                 if (res.status === 200) {
                     console.log(res.status)
                     toggleAlert({
                         open: true,
-                        message: 'Login successful',
+                        message: 'Autentificare reusita',
                         severity: Severity.success,
                     })
                 }
@@ -39,7 +40,7 @@ export function Login() {
                 console.log(err)
                 toggleAlert({
                     open: true,
-                    message: err.response.data.error || 'Login failed',
+                    message: err.response.data.error || 'Autentificare nereusita',
                     severity: Severity.error,
                 })
             })
@@ -57,11 +58,11 @@ export function Login() {
                         {...register('email', {
                             required: {
                                 value: true,
-                                message: 'Email is required'
+                                message: 'Email-ul este necesar'
                             },
                             pattern: {
                                 value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-                                message: 'This is not a valid email',
+                                message: 'Email-ul nu este valid',
                             },
                         })}
                         label={'Email'}
@@ -77,10 +78,10 @@ export function Login() {
                         {...register('password', {
                             required: {
                                 value: true,
-                                message: 'Password is required'
+                                message: 'Parola este necesara'
                             },
                         })}
-                        label={'Password'}
+                        label={'Parola'}
                         color="success"
                         type="password"
                         error={!!errors.password}

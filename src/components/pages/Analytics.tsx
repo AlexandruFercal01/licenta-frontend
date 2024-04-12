@@ -29,40 +29,7 @@ export function Analytics() {
     return (
         <div className="container">
             <div>
-            <Tabs centered value={value}>
-                <Tab
-                    label="Grafic"
-                    onClick={() => setValue(0)}
-                    sx={
-                        value === 0
-                            ? {
-                                  backgroundColor: 'white',
-                                  borderRadius: '16px 16px 0  0 ',
-                                  transition: 'ease 300ms',
-                              }
-                            : {}
-                    }
-                ></Tab>
-                <Tab
-                    label="Diagrama cu bare"
-                    onClick={() => setValue(1)}
-                    sx={
-                        value === 1
-                            ? {
-                                  backgroundColor: 'white',
-                                  borderRadius: '16px 16px 0  0 ',
-                                  transition: 'ease 300ms',
-                              }
-                            : {}
-                    }
-                ></Tab>
-            </Tabs>
-            <CustomTabPanel value={value} index={0}>
-                <LineChartCard />
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-                <BarChartCard />
-            </CustomTabPanel>
+            <LineChartCard/>
         </div>
         </div>
     )

@@ -36,6 +36,7 @@ export function Main() {
     return (
         <>
             <div className="container">
+                <div>
                 <Card style={BackgroundHead}>
                     <div className="content">
                         <div>
@@ -150,6 +151,7 @@ export function Main() {
                         </div>
                     </Card>
                 </Grid>
+                </div>
             </div>
         </>
     )

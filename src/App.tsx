@@ -44,7 +44,7 @@ function App() {
 
     const renderContent = (component: React.ReactNode) => (
         <div>
-            <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            <Header key="header" isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             <div className="body">
                 <SidePanel isMenuOpen={isMenuOpen} />
                 {component}

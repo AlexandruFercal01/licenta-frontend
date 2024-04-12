@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { PlantProps } from '../components/common/PlantCard'
+import { Severity, toggleAlert } from '../components/common/AlertSnackbar'
 
 export const addPlant = (plant: string) => {
     return axios.post(
@@ -36,6 +37,12 @@ export const addPlantToFavourites = (id: number) => {
         headers: {
             Authorization: localStorage.getItem('token'),
         },
+    }).then((res) => {
+        toggleAlert({
+            open: true,
+            message: res.data.message,
+            severity: Severity.success,
+        })
     })
 }
 

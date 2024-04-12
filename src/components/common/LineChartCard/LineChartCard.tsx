@@ -19,9 +19,10 @@ type Props = {
 }
 
 const style = {
-    height: '70vh',
+    height: '100%',
     borderRadius: '20px ',
     paddingTop: '0px',
+    overflow: 'auto',
 }
 
 function getFirstAndLastDayOfWeek(date) {

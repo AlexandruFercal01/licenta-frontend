@@ -32,6 +32,46 @@ export const getMonthValues = ()=>{
     });
 };
 
+export const toggleWindowOpen = (windowState: boolean)=>{
+    return axios.post("http://localhost:3001/greenhouse/servo", {
+        "openWindow": windowState
+    }, {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }); 
+}
+
+export const toggleFan1 = (fanState: boolean)=>{
+    return axios.post("http://localhost:3001/greenhouse/fan/1", {
+        "fan1": fanState
+    }, {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }); 
+}
+
+export const toggleFan2 = (fanState: boolean)=>{
+    return axios.post("http://localhost:3001/greenhouse/fan/2", {
+        "fan2": fanState
+    }, {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }); 
+}
+
+export const togglePump = (pumpState: boolean)=>{
+    return axios.post("http://localhost:3001/greenhouse/fan/2", {
+        "water_pump": pumpState
+    }, {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }); 
+}
+
 
 
 

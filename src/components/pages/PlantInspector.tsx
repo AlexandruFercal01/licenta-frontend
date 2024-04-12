@@ -17,6 +17,7 @@ import axios from 'axios'
 import { addPlantToFavourites, getFavouritePlantsIds, getPlantByName } from '../../api/Plants'
 import PlantNotFound from '../assets/plant_not_found.png'
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+import { toggleAlert } from '../common/AlertSnackbar'
 
 export function PlantInspector() {
     const [plantName, setPlantName] = useState<string>()
@@ -62,19 +63,19 @@ export function PlantInspector() {
                                         zIndex: '9999 !important',
                                     }}
                                 >
-                                    <h3>Common Name</h3>
+                                    <h3>Denumire comuna</h3>
                                 </TableCell>
                                 <TableCell>
-                                    <h3>Image</h3>
+                                    <h3>Imagine</h3>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <h3>Scientific Name</h3>
+                                    <h3>Nume stiintific</h3>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <h3>Watering</h3>
+                                    <h3>Apa</h3>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <h3>Sunlight</h3>
+                                    <h3>Soare</h3>
                                 </TableCell>
                             </TableRow>
                         </TableHead>
@@ -89,7 +90,7 @@ export function PlantInspector() {
                                     }}
                                 >
                                     <h2 style={{ marginLeft: '10px' }}>
-                                        No items
+                                        Nu exista plante
                                     </h2>
                                 </TableCell>
                             ) : (
@@ -124,7 +125,7 @@ export function PlantInspector() {
                                                     width="100px"
                                                     height="100px"
                                                 />
-                                                <h5>Image not found</h5>
+                                                <h5>Imagine inexistenta</h5>
                                                 </div>
                                             )}
                                         </TableCell>

@@ -4,10 +4,11 @@ import './styles.css'
 
 type Props = {
     name: string
-    on: boolean
+    on: boolean,
+    onToggle: () => void,
 }
 
-export function ControlCard({ name, on }: Props) {
+export function ControlCard({ name, on, onToggle }: Props) {
     return (
         <Card
             sx={{
@@ -25,6 +26,7 @@ export function ControlCard({ name, on }: Props) {
                         color: '#79ac78',
                     },
                 }}
+                onClick={() => onToggle()}
             />
         </Card>
     )

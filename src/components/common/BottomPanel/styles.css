@@ -1,3 +1,7 @@
+.bottomPanel{
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .bottomPanel {
         width: 100%;

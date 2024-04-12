@@ -32,7 +32,8 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
     const [profileAnchor, setProfileAnchor] =
         useState<HTMLButtonElement | null>(null)
 
-    const { notificationCount, notifications, clearNotifications} = useNotificationContext();
+    const { notificationCount, notifications, clearNotifications } =
+        useNotificationContext()
 
     const openNotifications = Boolean(notificationAnchor)
     const openProfile = Boolean(profileAnchor)
@@ -95,22 +96,25 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                     }}
                 >
                     <div className="notificationsPopover">
-                       {
-                        notificationCount > 0 ?
-                           notifications.map((notification, index) => (
-                               <div>
-                               <Typography variant="h6">
-                                   <b>{notification.title}</b>
-                               </Typography>
-                               <p>
-                                   {notification.message}
-                               </p>
-                               <Divider />
-                           </div>
-
-                           )) : <p>No new notifications</p>
-                       }
-                       <Button onClick={() => clearNotifications()}> Clear Notifications</Button>
+                        {notificationCount > 0 ? (
+                            notifications.map((notification, index) => (
+                                <div>
+                                    <Typography variant="h6">
+                                        <b>{notification.title}</b>
+                                    </Typography>
+                                    <p>{notification.message}</p>
+                                    <Divider />
+                                </div>
+                            ))
+                        ) : (
+                            <p>Nu exista notificari</p>
+                        )}
+                        {notificationCount > 0 && (
+                            <Button onClick={() => clearNotifications()}>
+                                {' '}
+                                Stergere notificari
+                            </Button>
+                        )}
                     </div>
                 </Popover>
                 <IconButton
@@ -147,7 +151,7 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                             <Avatar sx={{ margin: '10px' }} src={farmer}>
                                 A
                             </Avatar>
-                            <p>alex@gmail.com</p>
+                            <p>{localStorage.getItem('email').slice(1, -1)}</p>
                         </div>
                         <Button
                             variant="contained"

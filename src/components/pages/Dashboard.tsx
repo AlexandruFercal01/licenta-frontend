@@ -3,7 +3,7 @@ import './dashboard.styles.css'
 
 import { SensorCard } from '../common/SensorCard'
 import { ControlCard } from '../common/ControlCard/indes'
-import { getLatestValues } from '../../api/Sensors'
+import { getLatestValues, toggleFan1,toggleFan2, togglePump, toggleWindowOpen } from '../../api/Sensors'
 import { DashboardSkeleton } from '../common/Skeleton'
 import { Icon, IconType, SensorsData } from '../../shared'
 import { toggleAlert } from '../common/AlertSnackbar'
@@ -36,40 +36,40 @@ export function Dashboard() {
         <div className="container">
             { memoizedSensorsData ?
             <div className="sensorsTable">
-                <h2>Sensors data</h2>
+                <h2>Senzori</h2>
                 <div className="cardContainer">
                     <SensorCard
-                        name="Temperature"
+                        name="Temperatura"
                         value={memoizedSensorsData.temperature}
                         unit_value="°C"
                         icon={IconType['temperature']}
                     />
                     <SensorCard
-                        name="Light"
+                        name="Intensitate luminoasa"
                         value={memoizedSensorsData.light}
                         unit_value="%"
                         icon={IconType['light']}
                     />
                     <SensorCard
-                        name="Soil humidity"
+                        name="Umiditate sol"
                         value={memoizedSensorsData.soil_humidity}
                         unit_value="%"
                         icon={IconType['soil_humidity']}
                     />
                     <SensorCard
-                        name="Air Humidity"
+                        name="Umiditate aer"
                         value={memoizedSensorsData.humidity}
                         unit_value="%"
                         icon={IconType['air_humidity']}
                     />
                 </div>
 
-                <h2>Control </h2>
-                <div className="controlCardContainer">
-                    <ControlCard name="Open Window" on={memoizedSensorsData.openWindow} />
-                    <ControlCard name="Turn fan 1 On" on={memoizedSensorsData.fan1} />
-                    <ControlCard name="Turn fan 2 On" on={memoizedSensorsData.fan2} />
-                    <ControlCard name="Water the plants" on={memoizedSensorsData.water_pump} />
+                <h2>Control</h2>
+                <div className="cardContainer">
+                    <ControlCard name="Panou lateral" on={memoizedSensorsData.openWindow} onToggle={()=> toggleWindowOpen(!sensorsData.openWindow)} />
+                    <ControlCard name="Ventilatorul 1" on={memoizedSensorsData.fan1} onToggle={()=> toggleFan1(!sensorsData.fan1)}/>
+                    <ControlCard name="Ventilatorul 2" on={memoizedSensorsData.fan2} onToggle={()=> toggleFan2(!sensorsData.fan2)}/>
+                    <ControlCard name="Pompa de apa" on={memoizedSensorsData.water_pump} onToggle={()=> togglePump(!sensorsData.water_pump)}/>
                 </div>
             </div> : <DashboardSkeleton/>}
         </div>
