@@ -29,7 +29,7 @@ export function PlantInspector() {
                 <TextField
                     className="searchBarInput"
                     sx={{ borderRadius: '200px' }}
-                    placeholder="Search a plant"
+                    placeholder="Cauta o planta"
                     onChange={(e) => {
                         setPlantName(e.target.value)
                     }}
