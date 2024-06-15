@@ -5,7 +5,7 @@ import './styles.css'
 type Props = {
     name: string
     on: boolean,
-    onToggle: () => void,
+    onToggle: (event: React.ChangeEvent<HTMLInputElement> ) => void,
 }
 
 export function ControlCard({ name, on, onToggle }: Props) {
@@ -19,6 +19,7 @@ export function ControlCard({ name, on, onToggle }: Props) {
         >
             <h2>{name}</h2>{' '}
             <Switch
+                name={name}
                 color="default"
                 defaultChecked={on}
                 sx={{
@@ -26,7 +27,7 @@ export function ControlCard({ name, on, onToggle }: Props) {
                         color: '#79ac78',
                     },
                 }}
-                onClick={() => onToggle()}
+                onChange={onToggle}
             />
         </Card>
     )

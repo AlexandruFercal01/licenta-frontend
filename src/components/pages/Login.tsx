@@ -26,7 +26,7 @@ export function Login() {
             .then((res) => {
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('email', res.data.email)
-                navigate('/dashboard')
+                navigate('/')
                 if (res.status === 200) {
                     console.log(res.status)
                     toggleAlert({

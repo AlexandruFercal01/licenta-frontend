@@ -20,7 +20,9 @@ export function MyPlants() {
     }, [])
 
     const onDelete = async (id: number) => {
-        await deletePlantFromFavourites(id).then(()=> fetchData());
+        await deletePlantFromFavourites(id);
+        setFavouritePlants(favouritePlants.filter((plant)=> plant.id = id));
+        fetchData();
     }
 
     return (

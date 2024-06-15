@@ -1,7 +1,15 @@
-import axios from "axios";
+import api from "./ApiService";
 
 export const getLatestValues = ()=>{
-    return axios.get("http://localhost:3001/greenhouse/latestValue", {
+    return api.get("http://localhost:3001/greenhouse/latestValue", {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    });
+};
+
+export const getAllValues = ()=>{
+    return api.get("http://localhost:3001/greenhouse/allData", {
         headers: {
             'Authorization': localStorage.getItem('token')
         }
@@ -9,7 +17,7 @@ export const getLatestValues = ()=>{
 };
 
 export const getTodayValues = ()=>{
-    return axios.get("http://localhost:3001/greenhouse/todayData", {
+    return api.get("http://localhost:3001/greenhouse/todayData", {
         headers: {
             'Authorization': localStorage.getItem('token')
         }
@@ -17,7 +25,7 @@ export const getTodayValues = ()=>{
 };
 
 export const getWeekValues = ()=>{
-    return axios.get("http://localhost:3001/greenhouse/weeklyData", {
+    return api.get("http://localhost:3001/greenhouse/weeklyData", {
         headers: {
             'Authorization': localStorage.getItem('token')
         }
@@ -25,7 +33,7 @@ export const getWeekValues = ()=>{
 };
 
 export const getMonthValues = ()=>{
-    return axios.get("http://localhost:3001/greenhouse/monthlyData", {
+    return api.get("http://localhost:3001/greenhouse/monthlyData", {
         headers: {
             'Authorization': localStorage.getItem('token')
         }
@@ -33,7 +41,7 @@ export const getMonthValues = ()=>{
 };
 
 export const toggleWindowOpen = (windowState: boolean)=>{
-    return axios.post("http://localhost:3001/greenhouse/servo", {
+    return api.post("http://localhost:3001/greenhouse/servo", {
         "openWindow": windowState
     }, {
         headers: {
@@ -43,7 +51,7 @@ export const toggleWindowOpen = (windowState: boolean)=>{
 }
 
 export const toggleFan1 = (fanState: boolean)=>{
-    return axios.post("http://localhost:3001/greenhouse/fan/1", {
+    return api.post("http://localhost:3001/greenhouse/fan/1", {
         "fan1": fanState
     }, {
         headers: {
@@ -53,7 +61,7 @@ export const toggleFan1 = (fanState: boolean)=>{
 }
 
 export const toggleFan2 = (fanState: boolean)=>{
-    return axios.post("http://localhost:3001/greenhouse/fan/2", {
+    return api.post("http://localhost:3001/greenhouse/fan/2", {
         "fan2": fanState
     }, {
         headers: {
@@ -63,7 +71,7 @@ export const toggleFan2 = (fanState: boolean)=>{
 }
 
 export const togglePump = (pumpState: boolean)=>{
-    return axios.post("http://localhost:3001/greenhouse/fan/2", {
+    return api.post("http://localhost:3001/greenhouse/fan/2", {
         "water_pump": pumpState
     }, {
         headers: {

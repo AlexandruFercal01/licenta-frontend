@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import './styles.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import { Main } from './components/pages/MainPage'
 import { Header } from './components/common/Header'
@@ -16,13 +16,19 @@ import { SnackbarProvider } from 'notistack'
 import { Notifications } from 'react-push-notification'
 import { io } from 'socket.io-client'
 import { useNotificationContext } from './components/context/notificationContext'
+import { setupInterceptors } from './api/ApiService'
 
 const SOCKET_SERVER_URL = 'http://localhost:3001'
 
 function App() {
+    const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
     const { notifications, addNotification } = useNotificationContext()
+
+    useEffect(() => {
+        setupInterceptors(navigate);
+    }, [navigate]);
 
     useEffect(() => {
         // Establish a WebSocket connection to the server
