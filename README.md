@@ -1,4 +1,4 @@
-# Plantario
+# Plantario - Frontend
 
 This is my diploma project. This part represents the frontend for an IoT app, where you can control and monitor a smart greenhouse.
 
